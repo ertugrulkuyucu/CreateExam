@@ -9,23 +9,13 @@ namespace SınavOlusturma.Models
 {
     public class Question
     {
-        //[Key]
+        [Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[ForeignKey("QuestionExamId")]
         public int Id { get; set; }
         public int ExamId { get; set; }
         public string Text { get; set; }
-        public virtual Answer[] Answers { get; set; }
-
-        public Question()
-        {
-            this.Answers = new Answer[4];
-        }
-
-        public void addAnswer(Answer a, int index)
-        {
-            this.Answers[index] = a;
-        }
-
+        public virtual List<Answer> Answers { get; set; }
 
     }
 }

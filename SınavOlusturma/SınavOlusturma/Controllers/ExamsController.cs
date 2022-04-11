@@ -4,6 +4,7 @@ using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Threading.Tasks;
 using System.Xml;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using SınavOlusturma.Models;
 
 namespace SınavOlusturma.Controllers
 {
+    [Authorize]
     public class ExamsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -84,7 +86,6 @@ namespace SınavOlusturma.Controllers
                     }
 
                     exam.TextViewModels = textViewModels;
-
                     return View(exam);               
         }
 
